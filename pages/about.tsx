@@ -34,9 +34,9 @@ const About = () => {
         <Heading borderBottom>Introduction</Heading>
         <p>
           {" "}
-          My name is Yohanes, Nice to meet You! I'm a Software engineer mostly
-          write code in JavaScript (ES6/Node.Js) and React. I have great passion
-          in web development.
+          My name is Yohanes, Nice to meet You! I&apos;m a Software Engineer
+          mostly write code in JavaScript (ES6/Node.Js) and React. I have great
+          passion in Web Development.
         </p>
         <p>
           I have {workingDuration}+ years of experience in writing code for

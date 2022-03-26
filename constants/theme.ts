@@ -54,7 +54,7 @@ export const theme = {
       borderBottom: "4px solid #adf4cf",
       fontFamily: "'Inter', sans-serif",
     },
-    articleCard: {
+    blogCard: {
       backgroundColor: "#f5f5f7",
       border: "1px solid #dedede",
       borderRadius: 8,

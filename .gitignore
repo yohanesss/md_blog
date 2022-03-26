@@ -9,6 +9,8 @@
 # testing
 /coverage
 
+/posts-test
+
 # next.js
 /.next/
 /out/

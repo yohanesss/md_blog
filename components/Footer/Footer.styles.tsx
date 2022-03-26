@@ -64,6 +64,17 @@ export const FooterAboutSection = styled.div`
 export const FooterConnectSection = styled.div`
   width: 40%;
 
+  svg {
+    padding-right: 5px;
+    width: 20px;
+    height: 20px;
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+  }
+
   a {
     box-sizing: border-box;
     margin: 0;
