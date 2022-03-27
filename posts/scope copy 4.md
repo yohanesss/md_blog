@@ -1,5 +1,5 @@
 ---
-title: Scope of Variables
+title: Scope of Variables 4
 date: '2020-05-15'
 description: Test Scope
 heroImage: https://images.unsplash.com/photo-1473075109809-7a17d327bdf6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80

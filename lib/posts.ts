@@ -1,16 +1,14 @@
-import { Blog } from "./../interfaces/Blog";
+import { BlogFrontMatter } from "./../interfaces/Blog";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { remark } from "remark";
-import html from "remark-html";
 
 const postDirectory = path.join(process.cwd(), "posts");
 
 export function getSortedPostsData() {
   // Get file name under /posts
   const fileNames = fs.readdirSync(postDirectory);
-  const allPostsData = fileNames.map((fileName) => {
+  const allPostsData: BlogFrontMatter[] = fileNames.map((fileName) => {
     // Remove '.md' from file name to get id
     const id = fileName.replace(/\.md$/, "");
 
@@ -19,13 +17,19 @@ export function getSortedPostsData() {
     const fileContents = fs.readFileSync(fullPath, "utf-8");
 
     // Use gray-matter to parse the post metadata section
-    console.log(fileContents);
-    const matterResult: Blog = matter(fileContents);
+    const matterResult = matter(fileContents).data;
 
     // Combine the data with the id
     return {
       id,
-      ...matterResult.data,
+      title: matterResult.title,
+      date: matterResult.date,
+      description: matterResult.description,
+      heroImage: matterResult.heroImage,
+      photographer: matterResult.photographer,
+      unsplashAccount: matterResult.unsplashAccount,
+      isPublished: matterResult.isPublished,
+      tags: matterResult.tags,
     };
   });
 
@@ -52,23 +56,13 @@ export function getAllPostIds() {
   });
 }
 
-export async function getPostData(id: string) {
-  const fullPath = path.join(postDirectory, `${id}.md`);
-  const fileContents = fs.readFileSync(fullPath, "utf-8");
+export async function getPostById(id: string) {
+  const source = fs.readFileSync(path.join(postDirectory, `${id}.md`), "utf8");
 
-  // Use gray-matter to parse the post metadata section
-  const matterResult = matter(fileContents);
+  const { data, content } = matter(source);
 
-  // Use remark to convert markdown into HTML string
-  const processedContent = await remark()
-    .use(html)
-    .process(matterResult.content);
-  const contentHtml = processedContent.toString();
-
-  // Combine the data with the id and contentHtml
   return {
-    id,
-    contentHtml,
-    ...matterResult.data,
+    frontMatter: data,
+    markdownBody: content,
   };
 }

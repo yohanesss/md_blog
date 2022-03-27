@@ -1,5 +1,5 @@
 ---
-title: Scope of Variables
+title: Scope of Variables 3
 date: '2020-05-15'
 description: Test Scope
 heroImage: https://images.unsplash.com/photo-1473075109809-7a17d327bdf6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80
@@ -8,6 +8,7 @@ unsplashAccount: ro_ka
 isPublished: true
 tags:
   - javascript
+  - react
 ---
 
 Variabel memiliki scope / jangkauan terhadap blok program / fungsi. Jika di [artikel variabel & constants ini](/js101/introduction/1-variables-constants/) kita sudah membahas sedikit perihal scope dari suatu variabel dengan keyword `var`, `let`, dan `const`. Kali ini kita akan membahas lebih dalam serta contoh bagaimana kita  dapat mengetahui jangkauan dari variabel.

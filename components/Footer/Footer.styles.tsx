@@ -84,7 +84,7 @@ export const FooterConnectSection = styled.div`
     text-decoration: none;
     font-weight: 700;
     border-bottom: 4px solid #adf4cf;
-    font-family: "Inter", sans-serif;
+    font-family: ${theme.fonts.link};
   }
 `;
 

@@ -10,6 +10,7 @@ export const theme = {
   fonts: {
     body: "'Karla', sans-serif",
     heading: "'Inter', sans-serif",
+    link: "'Inter', sans-serif",
     monospace: "'IBM Plex Mono', monospace",
   },
   fontWeights: {
