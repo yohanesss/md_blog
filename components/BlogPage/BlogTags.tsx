@@ -11,14 +11,14 @@ const BlogTags = ({ tags }: BlogSearchBarProps) => {
   const renderActiveTags =
     tags && tags.length > 0 ? (
       <div>
-        <p>
+        <div>
           ✍🏼 Blog posts tagged :{" "}
           {currentTags.map((tag, index) => (
             <BlogSearchBarFilterItem key={tag}>
               {`#${tag}`}
             </BlogSearchBarFilterItem>
           ))}
-        </p>
+        </div>
         <p>
           <Link href={"/blog"}>
             <a>{"<<"} View All Blog Posts</a>

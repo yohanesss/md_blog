@@ -33,7 +33,7 @@ const BlogPageLayout = ({
     <BlogPageContainer>
       <BlogPageTitle>{frontMatter.title}</BlogPageTitle>
       <BlogPageDateDesc>
-        {moment(frontMatter.date).format(formats.BLOG_TIMESTAMP)} . ☕️☕️☕️{" "}
+        {moment(frontMatter.date).format(formats.BLOG_TIMESTAMP)} | ☕️{" "}
         {readingTime(content).text}
       </BlogPageDateDesc>
       <BlogPageTagsContainer>{renderTags}</BlogPageTagsContainer>

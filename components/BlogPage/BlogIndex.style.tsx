@@ -33,4 +33,8 @@ export const BlogLayoutSearchBar = styled.input`
   &:focus {
     outline: none;
   }
+
+  @media (max-width: 40em) {
+    width: calc(100% - 16px);
+  }
 `;
