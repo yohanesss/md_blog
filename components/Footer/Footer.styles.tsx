@@ -105,6 +105,7 @@ export const SupportMeButton = styled.button`
 
   img {
     width: 20px;
+    height: 25px;
     margin-right: 5px;
   }
 
