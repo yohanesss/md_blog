@@ -4,8 +4,6 @@ const nextConfig = {
 };
 
 module.exports = {
-  // next-on-netlify target set to serverless
-  target: "serverless",
   future: {
     webpack5: true, // by default, if you customize webpack config, they switch back to version 4.
     // Looks like backward compatibility approach.
