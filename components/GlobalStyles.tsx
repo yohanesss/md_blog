@@ -16,4 +16,11 @@ p {
 p, ul, li, h1, h2, h3, h4, h5, h6 {
   color: ${theme.colors.text};
 }
+
+* {
+  &:focus {
+    outline: none;
+    user-select: none;
+  }
+}
 `;

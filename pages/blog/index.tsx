@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getSortedPostsData } from "../../lib/posts";
 import { Heading } from "../../components/Util.style";
 import BlogCard from "../../components/BlogCard/BlogCard";
@@ -8,20 +8,29 @@ import {
   BlogLayoutSearchBar,
 } from "../../components/BlogPage/BlogIndex.style";
 import { IBlogPost } from "../../interfaces/Blog";
-import { GetServerSideProps } from "next";
 import BlogTags from "../../components/BlogPage/BlogTags";
+import { useRouter } from "next/router";
 
-export default function Blog({
-  posts,
-  qs,
-}: {
+type BlogProps = {
   posts: IBlogPost[];
-  qs: { tags: string | null; searchQuery: string | null };
-}) {
+};
+
+export default function Blog({ posts }: BlogProps) {
+  const router = useRouter();
   const [searchKeyword, setSearchKeyword] = useState("");
-  const filteredPosts: IBlogPost[] = posts.filter((post) =>
+  const [qs, setQs] = useState<string | null>(null);
+
+  useEffect(() => {
+    let search = window.location.search;
+    let params = new URLSearchParams(search);
+    setQs(params.get("tag"));
+  }, [router.asPath]);
+
+  let filteredPosts: IBlogPost[] = posts.filter((post) =>
     post.title.toLowerCase().trim().includes(searchKeyword.toLowerCase().trim())
   );
+
+  if (qs) filteredPosts = posts.filter((post) => post.tags.includes(qs));
 
   const renderPosts = filteredPosts.map((post) => (
     <div key={post.id}>
@@ -62,13 +71,13 @@ export default function Blog({
             target="_blank"
             rel="noreferrer"
           >
-            yohanessetiawan.us@gmail.com
+            hello at yohanessetiawan.us@gmail.com
           </a>
           . I&apos;d love to hear from you. 🤓
         </p>
       </BlogIntroductionContainer>
-      {qs.tags ? (
-        <BlogTags {...qs} />
+      {qs ? (
+        <BlogTags tags={qs} key={qs} />
       ) : (
         <BlogLayoutSearchBar
           value={searchKeyword}
@@ -81,41 +90,12 @@ export default function Blog({
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-  let allPosts = await getSortedPostsData();
-  let filteredPosts: IBlogPost[] = [];
-
-  if (query.tag) {
-    if (query.tag.includes(",")) {
-      // @ts-ignore
-      const searchTags = query.tag.split(",");
-      searchTags.forEach((searchTag: string) => {
-        let _filteredPosts = allPosts.filter((post) =>
-          post.tags.includes(searchTag)
-        );
-        if (_filteredPosts.length > 0) {
-          filteredPosts = [..._filteredPosts];
-        }
-      });
-    } else {
-      const searchTag = allPosts.filter((post) =>
-        // @ts-ignore
-        post.tags.includes(query.tag)
-      );
-      filteredPosts = [...searchTag];
-    }
-  } else {
-    filteredPosts = allPosts;
-  }
+export async function getStaticProps() {
+  const posts = await getSortedPostsData();
 
   return {
     props: {
-      posts: filteredPosts,
-      qs: {
-        tags: (query.tag as string) || null,
-        searchQuery: (query.q as string) || null,
-      },
-      // postsTwo: posts2,
+      posts,
     },
   };
-};
+}

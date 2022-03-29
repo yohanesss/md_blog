@@ -39,9 +39,10 @@ const BlogCard = ({
     <div style={{ margin: "10px 0" }}>
       {tags.map((tag) => (
         <Link href={`/blog?tag=${tag}`} key={id + tag} passHref>
-          <BlogCardTags>{"#" + tag}</BlogCardTags>
+          <BlogCardTags style={{ marginTop: "10px" }}>{"#" + tag}</BlogCardTags>
         </Link>
       ))}
+      <span style={{ marginTop: "10px" }}>☕️ {readingTime(content).text}</span>
     </div>
   ) : (
     []
@@ -62,9 +63,7 @@ const BlogCard = ({
               {/* <BlogCardDateIcon /> */}
               {"🗓 " + datePublished}
             </div>
-            <div style={{ display: "flex", alignItems: "center" }}>
-              {blogTags} - ☕️ {readingTime(content).text}
-            </div>
+            {blogTags}
           </div>
         </BlogCardDate>
       </BlogCardDataContainer>

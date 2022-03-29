@@ -34,7 +34,7 @@ export const NavInnerWrapper = styled.div`
   }
 `
 
-export const NavSection = styled.a`
+export const NavSection = styled.div`
   cursor: pointer;
   display: flex;
   align-items: center;
