@@ -14,6 +14,7 @@ export const BlogCardContainer = styled.div`
 `;
 
 export const BlogCardDataContainer = styled.div`
+  background-color: #fff;
   box-sizing: border-box;
   width: 100%;
   margin: 0px;
@@ -29,7 +30,7 @@ export const BlogCardDataInnerContainer = styled.a`
   text-decoration: none;
   box-sizing: border-box;
   margin: 0px;
-  min-width: 0px;
+  width: 100%;
   flex-direction: column;
   padding-top: 8px;
   padding-bottom: 8px;
@@ -59,12 +60,14 @@ export const BlogCardDate = styled.div`
   }
 `;
 
-export const BlogCardTags = styled.div`
+export const BlogCardTags = styled.a`
   display: inline-block;
   margin-right: 5px;
   padding: 5px;
   font-weight: 700;
-  background-color: aquamarine;
+  background-color: #adf4cf;
+  color: inherit;
+  text-decoration: none;
   border-radius: 5px;
 `;
 
@@ -75,8 +78,16 @@ export const BlogCardDescription = styled.div`
   font-family: Karla, sans-serif;
   color: rgb(28, 28, 30);
   padding-top: 16px;
-  padding-bottom: 16px;
   font-size: 14px;
+  line-height: 24px;
+  white-space: pre-wrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin-bottom: 4px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  line-clamp: 2;
   @media (min-width: 52em) {
     font-size: 16px;
   }
@@ -85,7 +96,7 @@ export const BlogCardDescription = styled.div`
   }
 `;
 
-export const BlogCardImage = styled.div`
+export const BlogCardImage = styled.a`
   box-sizing: border-box;
   margin: 0px;
   background-image: url(https://images.unsplash.com/photo-1511465390398-532913e8328d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1490&q=80);

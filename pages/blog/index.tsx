@@ -3,15 +3,15 @@ import { getSortedPostsData } from "../../lib/posts";
 import { Heading } from "../../components/Util.style";
 import BlogCard from "../../components/BlogCard/BlogCard";
 import { BlogIndexContainer } from "../../components/BlogPage/BlogIndex.style";
-import { IBlogFrontMatter } from "../../interfaces/Blog";
+import { IBlogPost } from "../../interfaces/Blog";
 import { GetServerSideProps } from "next";
-import BlogSearchBar from "../../components/BlogPage/BlogSearchBar";
+import BlogTags from "../../components/BlogPage/BlogTags";
 
 export default function Blog({
   posts,
   qs,
 }: {
-  posts: IBlogFrontMatter[];
+  posts: IBlogPost[];
   qs: { tags: string | null; searchQuery: string | null };
 }) {
   const renderPosts = posts.map((post) => (
@@ -55,7 +55,7 @@ export default function Blog({
         </a>
         . I&apos;d love to hear from you. 🤓
       </p>
-      <BlogSearchBar {...qs} />
+      <BlogTags {...qs} />
       {renderPosts}
     </BlogIndexContainer>
   );
@@ -63,7 +63,7 @@ export default function Blog({
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   let allPosts = await getSortedPostsData();
-  let filteredPosts: IBlogFrontMatter[] = [];
+  let filteredPosts: IBlogPost[] = [];
 
   if (query.tag) {
     if (query.tag.includes(",")) {
@@ -87,7 +87,6 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   } else {
     filteredPosts = allPosts;
   }
-  console.log("[filteredPosts]", filteredPosts);
 
   return {
     props: {

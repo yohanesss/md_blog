@@ -1,6 +1,7 @@
 import moment from "moment";
 import Link from "next/link";
 import React from "react";
+import readingTime from "reading-time";
 import formats from "../../constants/format";
 import {
   BlogCardContainer,
@@ -19,6 +20,7 @@ type BlogCardProps = {
   heroImage: string;
   title: string;
   date: string;
+  content: string;
   description: string;
   tags: string[];
 };
@@ -30,12 +32,15 @@ const BlogCard = ({
   id,
   title,
   tags,
+  content,
 }: BlogCardProps) => {
   const datePublished = moment(date).format(formats.BLOG_TIMESTAMP);
   const blogTags = tags ? (
     <div style={{ margin: "10px 0" }}>
       {tags.map((tag) => (
-        <BlogCardTags key={id + tag}>{"#" + tag}</BlogCardTags>
+        <Link href={`/blog?tag=${tag}`} key={id + tag} passHref>
+          <BlogCardTags>{"#" + tag}</BlogCardTags>
+        </Link>
       ))}
     </div>
   ) : (
@@ -54,16 +59,20 @@ const BlogCard = ({
         <BlogCardDate>
           <div>
             <div style={{ display: "flex", alignItems: "center" }}>
-              <BlogCardDateIcon />
-              {datePublished}
+              {/* <BlogCardDateIcon /> */}
+              {"🗓 " + datePublished}
             </div>
-            {blogTags}
+            <div style={{ display: "flex", alignItems: "center" }}>
+              {blogTags} - ☕️ {readingTime(content).text}
+            </div>
           </div>
         </BlogCardDate>
       </BlogCardDataContainer>
-      <BlogCardImage
-        style={{ backgroundImage: `url(${heroImage})` }}
-      ></BlogCardImage>
+      <Link href={`/blog/${id}`} key={id} passHref>
+        <BlogCardImage
+          style={{ backgroundImage: `url(${heroImage})` }}
+        ></BlogCardImage>
+      </Link>
     </BlogCardContainer>
   );
 };

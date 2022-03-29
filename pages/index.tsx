@@ -5,10 +5,10 @@ import BlogCard from "../components/BlogCard/BlogCard";
 import { Heading, SectionContainer } from "../components/Util.style";
 import styles from "../styles/Home.module.css";
 import { getSortedPostsData } from "../lib/posts";
-import { BlogFrontMatter } from "../interfaces/Blog";
+import { IBlogPost } from "../interfaces/Blog";
 
 type HomeProps = {
-  latestPosts: BlogFrontMatter[];
+  latestPosts: IBlogPost[];
 };
 
 const Home: NextPage<HomeProps> = ({ latestPosts }) => {

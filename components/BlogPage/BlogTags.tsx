@@ -1,12 +1,12 @@
 import Link from "next/link";
 import React from "react";
-import { BlogSearchBarFilterItem } from "./BlogSearchBar.style";
+import { BlogSearchBarFilterItem } from "./BlogTags.style";
 
 type BlogSearchBarProps = {
   tags: string | null;
 };
 
-const BlogSearchBar = ({ tags }: BlogSearchBarProps) => {
+const BlogTags = ({ tags }: BlogSearchBarProps) => {
   const currentTags = tags?.split(",") || [];
   const renderActiveTags =
     tags && tags.length > 0 ? (
@@ -29,4 +29,4 @@ const BlogSearchBar = ({ tags }: BlogSearchBarProps) => {
   return <>{renderActiveTags}</>;
 };
 
-export default BlogSearchBar;
+export default BlogTags;
