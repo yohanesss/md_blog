@@ -1,14 +1,21 @@
-import React, { useState } from "react";
-import { useRouter } from "next/router";
-import { getAllFiles, getSortedPostsData } from "../../lib/posts";
+import React from "react";
+import { getSortedPostsData } from "../../lib/posts";
 import { Heading } from "../../components/Util.style";
 import BlogCard from "../../components/BlogCard/BlogCard";
-import { BlogIndexContainer } from "../../components/BlogPage/BlogIndex.style.tsx";
+import { BlogIndexContainer } from "../../components/BlogPage/BlogIndex.style";
+import { IBlogFrontMatter } from "../../interfaces/Blog";
+import { GetServerSideProps } from "next";
+import BlogSearchBar from "../../components/BlogPage/BlogSearchBar";
 
-export default function Blog({ posts }) {
+export default function Blog({
+  posts,
+  qs,
+}: {
+  posts: IBlogFrontMatter[];
+  qs: { tags: string | null; searchQuery: string | null };
+}) {
   const renderPosts = posts.map((post) => (
     <div key={post.id}>
-      <p>{post.slug}</p>
       <BlogCard key={post.id} {...post} />
     </div>
   ));
@@ -48,18 +55,48 @@ export default function Blog({ posts }) {
         </a>
         . I&apos;d love to hear from you. 🤓
       </p>
+      <BlogSearchBar {...qs} />
       {renderPosts}
     </BlogIndexContainer>
   );
 }
 
-export async function getStaticProps() {
-  const posts = await getSortedPostsData();
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+  let allPosts = await getSortedPostsData();
+  let filteredPosts: IBlogFrontMatter[] = [];
+
+  if (query.tag) {
+    if (query.tag.includes(",")) {
+      // @ts-ignore
+      const searchTags = query.tag.split(",");
+      searchTags.forEach((searchTag: string) => {
+        let _filteredPosts = allPosts.filter((post) =>
+          post.tags.includes(searchTag)
+        );
+        if (_filteredPosts.length > 0) {
+          filteredPosts = [..._filteredPosts];
+        }
+      });
+    } else {
+      const searchTag = allPosts.filter((post) =>
+        // @ts-ignore
+        post.tags.includes(query.tag)
+      );
+      filteredPosts = [...searchTag];
+    }
+  } else {
+    filteredPosts = allPosts;
+  }
+  console.log("[filteredPosts]", filteredPosts);
 
   return {
     props: {
-      posts,
+      posts: filteredPosts,
+      qs: {
+        tags: (query.tag as string) || null,
+        searchQuery: (query.q as string) || null,
+      },
       // postsTwo: posts2,
     },
   };
-}
+};

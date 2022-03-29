@@ -5,17 +5,12 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { getAllPostIds, getPostById } from "../../lib/posts";
 import BlogPageLayout from "../../components/BlogPage/BlogPageLayout";
-import { BlogFrontMatter } from "../../interfaces/Blog";
-// import { BlogPostLink } from "../../components/BlogPage/BlogPage.style";
-
-// type BlogPostProps = {
-//   markdownBody: string;
-// };
+import { IBlogFrontMatter } from "../../interfaces/Blog";
 
 export type BlogPostProps = {
   slug: string;
   siteTitle: string;
-  frontMatter: BlogFrontMatter;
+  frontMatter: IBlogFrontMatter;
   markdownBody: any;
   wordCount: number;
   readingTime: string;
@@ -43,9 +38,6 @@ const BlogPost = ({ markdownBody, frontMatter }: BlogPostProps) => {
               </code>
             );
           },
-          // link({ children, ...props }) {
-          //   return <BlogPostLink>{children}</BlogPostLink>;
-          // },
         }}
       >
         {markdownBody}
@@ -64,7 +56,6 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }: Params) {
   const { frontMatter, markdownBody } = await getPostById(params.id);
-  console.log("[frontMatter]", frontMatter);
   return {
     props: {
       frontMatter,

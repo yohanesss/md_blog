@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 import readingTime from "reading-time";
 import formats from "../../constants/format";
-import { BlogFrontMatter } from "../../interfaces/Blog";
+import { IBlogFrontMatter } from "../../interfaces/Blog";
 import {
   BlogHeroImage,
   BlogHeroImageCaption,
@@ -15,7 +15,7 @@ import {
 
 type BlogPageLayoutProps = {
   children: React.ReactNode;
-  frontMatter: BlogFrontMatter;
+  frontMatter: IBlogFrontMatter;
   content: string;
 };
 
@@ -25,7 +25,7 @@ const BlogPageLayout = ({
   content,
 }: BlogPageLayoutProps) => {
   const renderTags = frontMatter.tags.map((tag, index) => (
-    <Link key={tag} href={`/blog/?tag=${tag}`}>
+    <Link key={tag} href={`/blog?tag=${tag}`}>
       <a style={{ marginLeft: `${index !== 0 ? "5px" : "0"}` }}>#{tag}</a>
     </Link>
   ));

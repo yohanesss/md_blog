@@ -1,4 +1,4 @@
-export interface BlogFrontMatter {
+export interface IBlogFrontMatter {
   id: string;
   title: string;
   date: string;
@@ -8,4 +8,8 @@ export interface BlogFrontMatter {
   unsplashAccount: string;
   isPublished: string;
   tags: string[];
+}
+
+export interface IBlogPost extends IBlogFrontMatter {
+  content: string;
 }

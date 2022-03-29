@@ -9,8 +9,10 @@ import {
   BlogCardDate,
   BlogCardDescription,
   BlogCardImage,
+  BlogCardTags,
   BlogTitle,
-} from "./Blog.style";
+} from "./BlogCard.style";
+import BlogCardDateIcon from "./BlogCardDateIcon";
 
 type BlogCardProps = {
   id: string;
@@ -31,51 +33,38 @@ const BlogCard = ({
 }: BlogCardProps) => {
   const datePublished = moment(date).format(formats.BLOG_TIMESTAMP);
   const blogTags = tags ? (
-    <p>
-      {tags.map((tag, index) => (
-        <span key={id + tag}>{(index !== 0 ? ", " : "") + "#" + tag}</span>
+    <div style={{ margin: "10px 0" }}>
+      {tags.map((tag) => (
+        <BlogCardTags key={id + tag}>{"#" + tag}</BlogCardTags>
       ))}
-    </p>
+    </div>
   ) : (
     []
   );
 
   return (
-    <Link href={`/blog/${id}`} key={id}>
-      <a style={{ textDecoration: "none" }}>
-        <BlogCardContainer>
-          <BlogCardDataContainer>
-            <BlogCardDataInnerContainer>
-              <BlogTitle>{title}</BlogTitle>
-              <BlogCardDescription>{description}</BlogCardDescription>
-              {blogTags}
-            </BlogCardDataInnerContainer>
-            <BlogCardDate>
-              <svg
-                stroke="#1C1C1E"
-                fill="#1C1C1E"
-                strokeWidth="0"
-                viewBox="0 0 24 24"
-                height="1em"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill="none"
-                  stroke="#1C1C1E"
-                  strokeWidth="2"
-                  d="M2,5 L22,5 L22,22 L2,22 L2,5 Z M18,5 L18,1 M6,5 L6,1 M2,10 L22,10"
-                ></path>
-              </svg>
+    <BlogCardContainer>
+      <BlogCardDataContainer>
+        <Link href={`/blog/${id}`} key={id} passHref>
+          <BlogCardDataInnerContainer>
+            <BlogTitle>{title}</BlogTitle>
+            <BlogCardDescription>{description}</BlogCardDescription>
+          </BlogCardDataInnerContainer>
+        </Link>
+        <BlogCardDate>
+          <div>
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <BlogCardDateIcon />
               {datePublished}
-            </BlogCardDate>
-          </BlogCardDataContainer>
-          <BlogCardImage
-            style={{ backgroundImage: `url(${heroImage})` }}
-          ></BlogCardImage>
-        </BlogCardContainer>
-      </a>
-    </Link>
+            </div>
+            {blogTags}
+          </div>
+        </BlogCardDate>
+      </BlogCardDataContainer>
+      <BlogCardImage
+        style={{ backgroundImage: `url(${heroImage})` }}
+      ></BlogCardImage>
+    </BlogCardContainer>
   );
 };
 
