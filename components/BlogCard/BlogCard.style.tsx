@@ -1,20 +1,21 @@
 import styled from "styled-components";
+import { theme } from "../../constants/theme";
 
 export const BlogCardContainer = styled.div`
   box-sizing: border-box;
   margin: 0px 0px 32px;
   min-width: 0px;
   border: 1px solid rgb(222, 222, 222);
+  box-shadow: ${theme.boxShadow};
   border-radius: 8px;
   flex-direction: row;
   -webkit-box-pack: justify;
   justify-content: space-between;
-  background-color: rgb(250, 250, 250);
+  background-color: #fff;
   display: flex;
 `;
 
 export const BlogCardDataContainer = styled.div`
-  background-color: #fff;
   box-sizing: border-box;
   width: 100%;
   margin: 0px;

@@ -88,6 +88,31 @@ export const FooterConnectSection = styled.div`
   }
 `;
 
+export const SupportMeButton = styled.button`
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin-top: 10px;
+  background-color: rgb(213, 216, 220);
+  font-weight: bold;
+  width: fit-content;
+  border-radius: 5px;
+  border: 2px solid rgb(213, 216, 220);
+  cursor: pointer;
+  transition: 0.15s ease-in-out;
+  margin-top: 20px;
+  text-decoration: none;
+
+  img {
+    width: 20px;
+    margin-right: 5px;
+  }
+
+  &:hover {
+    background-color: #fff;
+  }
+`;
+
 type FooterSectionItemProps = {
   withoutPaddingTop?: boolean;
 };

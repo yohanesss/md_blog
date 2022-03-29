@@ -71,7 +71,7 @@ export default function Blog({ posts }: BlogProps) {
             target="_blank"
             rel="noreferrer"
           >
-            hello at yohanessetiawan.us@gmail.com
+            hello at yohanes.dev
           </a>
           . I&apos;d love to hear from you. 🤓
         </p>

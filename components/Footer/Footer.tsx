@@ -1,4 +1,5 @@
 import React from "react";
+import { Img } from "../Util.style";
 import {
   FooterAboutSection,
   FooterConnectSection,
@@ -7,6 +8,7 @@ import {
   FooterInnerContainer,
   FooterSectionItem,
   PoweredByContainer,
+  SupportMeButton,
 } from "./Footer.styles";
 
 const Footer = () => {
@@ -15,7 +17,7 @@ const Footer = () => {
       <FooterContainer withMarginTop>
         <FooterInnerContainer withExtraPaddingY>
           <FooterAboutSection>
-            <FooterSectionItem withoutPaddingTop>
+            {/* <FooterSectionItem withoutPaddingTop>
               <h2>Yohanes Setiawan</h2>
               <div>
                 Tech enthusiast, writting programming tutorial.{" "}
@@ -27,8 +29,8 @@ const Footer = () => {
                   Buy me coffee ☕
                 </a>
               </div>
-            </FooterSectionItem>
-            <FooterSectionItem>
+            </FooterSectionItem> */}
+            <FooterSectionItem withoutPaddingTop>
               <h2 style={{ paddingBottom: "8px" }}>This site powered by:</h2>
               <PoweredByContainer>
                 <svg
@@ -57,6 +59,20 @@ const Footer = () => {
                   </g>
                 </svg>
               </PoweredByContainer>
+              <a
+                href="https://www.buymeacoffee.com/yohanessetw"
+                target="_blank"
+                rel="noreferrer"
+                style={{ textDecoration: "none" }}
+              >
+                <SupportMeButton>
+                  <Img
+                    src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg"
+                    alt="Buy me a coffee logo"
+                  />{" "}
+                  BUY ME A COFFEE
+                </SupportMeButton>
+              </a>
             </FooterSectionItem>
           </FooterAboutSection>
           <FooterConnectSection>

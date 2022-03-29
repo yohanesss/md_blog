@@ -26,7 +26,7 @@ export const BlogLayoutSearchBar = styled.input`
   padding: 10px;
   font-size: 16px;
   border: none;
-  box-shadow: rgb(222, 222, 222) 0px 0px 10px 1px;
+  box-shadow: ${theme.boxShadow};
   border-radius: 5px;
   min-width: 300px;
 

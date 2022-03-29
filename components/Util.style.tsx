@@ -32,5 +32,32 @@ export const SectionContainer = styled.div`
     font-size: 16px;
     line-height: 1.5;
   }
-}
+`;
+
+export const Img = styled.img``;
+
+export const HomeIntroContainer = styled(SectionContainer)`
+  margin-bottom: 48px;
+  display: flex;
+  align-items: center;
+  img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-left: 10px;
+  }
+
+  @media (max-width: 40em) {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    text-align: center;
+    align-items: center;
+
+    img {
+      margin-left: 0;
+      margin-bottom: 20px;
+      width: 150px;
+      height: 150px;
+    }
+  }
 `;
