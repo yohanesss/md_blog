@@ -13,7 +13,6 @@ import {
   BlogCardTags,
   BlogTitle,
 } from "./BlogCard.style";
-import BlogCardDateIcon from "./BlogCardDateIcon";
 
 type BlogCardProps = {
   id: string;

@@ -41,8 +41,11 @@ const BlogPageLayout = ({
         style={{ backgroundImage: `url(${frontMatter.heroImage})` }}
       />
       <BlogHeroImageCaption>
-        Hero photo by <a href="https://unsplash.com/martzzl">Marcel Strauß</a>,
-        powered by <a href="https://unsplash.com/">unsplash</a>.
+        Photo by{" "}
+        <a href={`https://unsplash.com/${frontMatter.unsplashAccount}`}>
+          {frontMatter.photographer}
+        </a>
+        , powered by <a href="https://unsplash.com/">unsplash</a>.
       </BlogHeroImageCaption>
       {children}
     </BlogPageContainer>
