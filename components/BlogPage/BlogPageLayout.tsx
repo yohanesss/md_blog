@@ -1,7 +1,9 @@
 import moment from "moment";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 import readingTime from "reading-time";
+import { DEV_DOMAIN } from "../../constants/devInfo";
 import formats from "../../constants/format";
 import { IBlogFrontMatter } from "../../interfaces/Blog";
 import {
@@ -24,6 +26,7 @@ const BlogPageLayout = ({
   frontMatter,
   content,
 }: BlogPageLayoutProps) => {
+  const router = useRouter();
   const renderTags = frontMatter.tags.map((tag, index) => (
     <Link key={tag} href={`/blog?tag=${tag}`}>
       <a style={{ marginLeft: `${index !== 0 ? "5px" : "0"}` }}>#{tag}</a>
@@ -48,6 +51,13 @@ const BlogPageLayout = ({
         , powered by <a href="https://unsplash.com/">unsplash</a>.
       </BlogHeroImageCaption>
       {children}
+      <a
+        href={`https://mobile.twitter.com/search?q=${
+          DEV_DOMAIN + router.asPath
+        }`}
+      >
+        Discuss on Twitter
+      </a>
     </BlogPageContainer>
   );
 };

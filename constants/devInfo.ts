@@ -1,4 +1,5 @@
 export const START_WORK_YEAR = 2015;
+export const DEV_DOMAIN = "https://md-blog-yohanesss.vercel.app";
 
 export const workExperiences = [
   {
