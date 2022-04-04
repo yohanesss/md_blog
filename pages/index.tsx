@@ -35,12 +35,11 @@ const Home: NextPage<HomeProps> = ({ latestPosts }) => {
           </Heading>
           <p>
             My name is Yohanes, Nice to meet You! I&apos;m a Software Engineer
-            mostly write code in JavaScript (ES6/Node.Js) and React. I have
-            great passion in Web Development.
+            mostly write code in JavaScript (ES6/Typescript) and React.
           </p>
           <p>
-            This is my personal blog, contains my own personal thoughts and
-            tutorials not related to any organizations and instances..
+            This is my personal blog, contains my own personal thoughts and my
+            experience as a Software Engineer.
           </p>
           <p>Please enjoy your stay 🛋️</p>
         </div>

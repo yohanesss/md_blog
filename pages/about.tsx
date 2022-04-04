@@ -35,13 +35,12 @@ const About = () => {
         <p>
           {" "}
           My name is Yohanes, Nice to meet You! I&apos;m a Software Engineer
-          mostly write code in JavaScript (ES6/Node.Js) and React. I have great
-          passion in Web Development.
+          mostly write code in JavaScript (ES6/Typescript) and React.
         </p>
         <p>
           I have {workingDuration}+ years of experience in writing code for
-          building website, webservice, and mobile apps. Currently working as
-          Front-end engineer at{" "}
+          building website and mobile apps. Currently working as Frontend
+          Engineer at{" "}
           <a href="https://harperfloors.com" target="_blank" rel="noreferrer">
             Harper Floors
           </a>

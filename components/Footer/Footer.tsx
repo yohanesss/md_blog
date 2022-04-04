@@ -100,7 +100,7 @@ const Footer = () => {
                 twitter
               </a>
             </FooterSectionItem>
-            <FooterSectionItem>
+            {/* <FooterSectionItem>
               <svg
                 stroke="#1C1C1E"
                 fill="#1C1C1E"
@@ -119,7 +119,7 @@ const Footer = () => {
               >
                 instagram
               </a>
-            </FooterSectionItem>
+            </FooterSectionItem> */}
             <FooterSectionItem>
               <svg
                 stroke="#1C1C1E"
@@ -164,6 +164,19 @@ const Footer = () => {
                 rel="noreferrer"
               >
                 github
+              </a>
+            </FooterSectionItem>
+            <FooterSectionItem>
+              <Img
+                style={{ width: 20, height: 20, marginRight: 5 }}
+                src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png"
+              />
+              <a
+                href="https://dev.to/yohanesss"
+                target="_blank"
+                rel="noreferrer"
+              >
+                dev
               </a>
             </FooterSectionItem>
           </FooterConnectSection>
