@@ -9,15 +9,16 @@ export const workExperiences = [
     end: "-",
     isPresent: true,
     description:
-      "Building harperfloors.com, Flooring company based on California.",
+      "Building harperfloors.com, an e-commerce for selling floorings using shopify. Using liquid and Javascript for implementing the requirements of user stories into UI and UX.",
   },
   {
     companyName: "Daruma Adira Pratama",
-    role: "Lead Software Engineer",
+    role: "Lead Front End Developer",
     start: "2020-03-01",
     end: "2021-06-02",
     isPresent: false,
-    description: "Building daruma.co.id ",
+    description:
+      "To solve growing requirements that Daruma has, the company decided to rebuild the site using Java. I was promoted to be a Lead Front End Engineer in this new phase of development.",
   },
   {
     companyName: "Daruma Adira Pratama",
@@ -26,16 +27,15 @@ export const workExperiences = [
     end: "2020-03-01",
     isPresent: false,
     description:
-      "AN-TAR is a lyto sister company that provide couriers for buying goods and foods especially for high rise building. Building entire AN-TAR ecosystem ( Mobile apps: courier and client, Backend Services, CI/CD, CMS Dashboard).",
+      "Daruma Adira Pratama is one of the biggest e-commerce in Indonesia that provide B2B and B2C solutions for buying industrial tools. Developed Single Page Application (SPA) based e-commerce using React and Netlify pre-render for SEO solution. I also involved in backend for creating API in Django.",
   },
   {
     companyName: "Idea Tech",
-    role: "Web Developer / R&D",
+    role: "Freelance Software Engineer",
     start: "2015-03-01",
-    end: "2017-02-01",
+    end: "2017-10-01",
     isPresent: false,
-    description:
-      "Building several Lyto’s and Gravindo’s game sites, providing new features for their websites, also integrate and automate internal lyto advertising services and reports.",
+    description: `Doing Freelance as part time job while pursued my master degree at "Gunadarma University". Created several websites and mobile-app using angular and ionic.`,
   },
   // {
   //   companyName: "Mediatron / Telkom DDS - HEX",
@@ -52,10 +52,10 @@ export const devExpertises = [
   {
     heading: "Modern Web-Application Development",
     description:
-      "Using React JS or MERN stack to deliver business driven web-based application with solid, tested and scalable architecture design.",
+      "Using React JS or JAM stack to deliver business driven web-based application with solid, tested and scalable architecture design.",
   },
   {
-    heading: "JavaScript",
+    heading: "JavaScript & Typescript",
     description:
       "Ready to deliver clean, linted, error-safe, scalabe and testable code, with functional programming paradigm.",
   },
@@ -63,13 +63,12 @@ export const devExpertises = [
 
 export const devProfessionalSkills = [
   "Modern JavaScript (ES6)",
-  "MERN Stack",
+  "Typescript",
   "Next JS",
-  "Docker",
   "React-Native",
   "Agile Product development",
   "CSS + SASS",
-  "CSS in JS (emotion.sh, styled-components) ",
-  "Gatsby",
+  "CSS in JS (styled-components) ",
+  "Firebase",
   "Git",
 ];

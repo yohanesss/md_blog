@@ -59,5 +59,6 @@ export const WorkExperienceDescription = styled.div`
   font-size: 16px;
   font-family: Karla, sans-serif;
   padding-top: 8px;
+  line-heights: 1.25;
   padding-bottom: 8px;
 `;
