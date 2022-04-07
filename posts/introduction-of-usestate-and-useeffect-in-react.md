@@ -100,7 +100,7 @@ With this, we finished replicating the state management from class component int
 
 ## useEffect
 
-The `useEffect` hook allows us to implement lifecycle methods to tell the component to perform an *side effect* after rendering. The different types of effects are not limited like changing document title, adding animation or music, data retrieval, and subscriptions. I have write the article about [lifecyle method](/blog/lifecycle-method-in-react) if you need some refresher.
+The `useEffect` hook allows us to implement lifecycle methods to tell the component to perform an *side effect* after rendering. The different types of effects are not limited like changing document title, adding animation or music, data retrieval, and subscriptions. I have write the article about [lifecyle method](/blog/lifecycle-in-react-component) if you need some refresher.
 
 As mentioned earlier, the `useEffect` hook allows us to use React's lifecycle methods in stateless components. We'll look at mirroring the effects of `componentDidMount` and `componentDidUpdate`.
 
@@ -187,4 +187,4 @@ Another thing to note is, if we only pass one parameter (the effect callback) in
 
 The last thing that I want to mentioned is you also can mimic `componentWillUnmount` behavior in `useEffect` by having a return function in your effect callback. `useEffect` will invoke this function when unmounting the component. This is useful when you want to unsubscribe to some listener API or to cleaning up async effect in your component.
 
-That's it for the the introduction of `useState` and `useEffect`. I hope this article will help you in your journey to understanding react hooks 🍻
+That's it for the introduction of `useState` and `useEffect`. I hope this article will help you in your journey to understanding react hooks 🍻
