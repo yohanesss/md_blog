@@ -24,7 +24,7 @@ I will explain in following section about each methods that available for each l
 
 # Mounting Lifecycle Methods
 
-The mounting phase is a phase whre is the component is created and inserted into the DOM.
+The mounting phase, is a phase where is the component is created and inserted into the DOM.
 ## 1. `constructor()`
 
 `constructor()` is the very first method called as the component is created. This method is used for two purposes:
@@ -159,7 +159,56 @@ class ChangeDocTitle extends React.Component() {
 
 # Updating Lifecycle Methods
 
+The update phase, is a phase where the component doing a re-render (updating the state) that has been triggered because of `state` or `prop` change.
 
+## 1.`getDerivedFromProps()`
+
+This method is also invoked when the component doing an update. Since I already give an explanation of `getDerivedFromProps()` on mounting phase, please refer on that 🤓. Note that `getDerivedFromProps()` is invoked when the component is mounted and when the component is doing re-render.
+
+## 2.`shouldComponentUpdate()`
+
+After `getDerivedProps()` is called, `shouldComponentUpdate()` is invoked. This method accepts two arguments, the first argument is the `nextProps` and the second argument is `nextState`.
+
+The purpose of this function is to determine is wheter the component is will be re-render by returning `true` or not by returing `false`.
+
+```js
+import React from 'react';
+
+class FavFood extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      favMeal: 'French Fries 🍟'
+    };
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    // let's assume that the currentProps in this example { favDrink: 'Cola 🥤' }
+    if (nextProps.favDrink == 'Cola 🥤') {
+      // The component is won't be updated if the currentProps.favDrink is still same with the nextProps.favDrink even when the nextState is different with currentState
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>My Fav Drink is: {this.props.favDrink}</h1>
+        <h1>My Fav Meal is: {this.state.favMeal}</h1>
+        <button onClick={() => {this.setState({favMeal: 'Burger 🍔'})}}>Change My Meal! 🍽</button>
+      </div>
+    );
+  }
+}
+```
+
+Notice that in the contrived example above, we can click `Change My Meal! 🍽` to change the state of `favMeal` however in `shouldComponentUpdate()` we make a conditioning where if the `nextProps` of `favDrink` is still `Cola 🥤` (still the same with `currentProps`) then **the component will be not be updated**. 
+
+`shouldComponentUpdate()` is a powerful method. However as proverb says *"With Great Power Comes Great Responsibility"*, we must treat this method with caution. If we didn't careful with our conditioning and accidentally returning `false`, the component is not updated and this can be a problem and it will be hard to debug it 🐞.
+
+## 3.`render()`
 
 React supports four mounting lifecycle methods for component classes:
 
