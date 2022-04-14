@@ -210,6 +210,52 @@ Notice that in the contrived example above, we can click `Change My Meal! 🍽` 
 
 ## 3.`render()`
 
+`render()` method is called immediately depending on the returned value from `shouldComponentUpdate()`, which defaults to `true`.
+
+## 4. `getSnapshotBeforeUpdate()`
+
+Once `render()` is called, `getSnapshotBeforeUpdate()` is invoked just before the DOM is being rendered. It is used to store the previous values of the state after the DOM is updated. Any value returned by `getSnapshotBeforeUpdate()` will be used as a parameter for `componentDidUpdate()` which will be explained after this. ```getSnapshotBeforeUpdate()` accepts two arguments which is `prevProps` and `prevState`.
+
+```js
+import React from 'react';
+
+class FavSuperHero extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { mySuperHero: 'Thor ⚡️' }
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ mySuperHero: 'IronMan 🚀' })
+    }, 1000)
+  }
+
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    document.getElementById('prevHero').innerHTML = `Previous Super Hero: ${prevState.mySuperHero}`
+  }
+
+  componentDidUpdate() {
+    document.getElementById('newHero').innerHTML = `New Super Hero: ${prevState.mySuperHero}`
+  }
+
+  render() {
+    return(
+      <div>
+        <h1 id='prevHero'></h1>
+        <h1 id='newHero'></h1>
+      </div>
+    );
+  }
+}
+```
+
+From the code above we can get the `prevState` and showing `Previous Super Hero: Thor ⚡️` which is the old state that have been updated into `New Super Hero: IronMan 🚀` which is the current state.
+
+Note that, it is highly recommended to never directly to set state in `getSnapshotBeforeUpdate()`, otherwise it will trigger `render()` method.
+
+## 5. `componentDidUpdate()`
+
 React supports four mounting lifecycle methods for component classes:
 
 - `constructor()`
