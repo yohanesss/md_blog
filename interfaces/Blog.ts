@@ -5,7 +5,8 @@ export interface IBlogFrontMatter {
   description: string;
   heroImage: string;
   photographer: string;
-  unsplashAccount: string;
+  photographerAccount: string;
+  photoProvider: string;
   isPublished: string;
   tags: string[];
 }

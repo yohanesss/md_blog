@@ -2,9 +2,10 @@
 title: Scope of Variables 3
 date: '2020-05-15'
 description: Test Scope
-heroImage: https://images.unsplash.com/photo-1473075109809-7a17d327bdf6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80
-photographer: Robert Katzki
-unsplashAccount: ro_ka
+heroImage: https://images.pexels.com/photos/11434595/pexels-photo-11434595.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260
+photographer: Gaspar Zaldo
+photographerAccount: gaspo3
+photoProvider: pexels
 isPublished: true
 tags:
   - javascript

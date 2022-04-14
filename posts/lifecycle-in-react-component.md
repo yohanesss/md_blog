@@ -4,7 +4,8 @@ date: '2020-10-01'
 description: Learn about lifecycle in React component.
 heroImage: https://images.unsplash.com/photo-1574121007661-a3344b1834c0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1632&q=80
 photographer: Laura Gilchrist
-unsplashAccount: lauragilchristedu
+photographerAccount: lauragilchristedu
+photoProvider: unsplash
 isPublished: true
 tags:
   - javascript

@@ -45,10 +45,26 @@ const BlogPageLayout = ({
       />
       <BlogHeroImageCaption>
         Photo by{" "}
-        <a href={`https://unsplash.com/${frontMatter.unsplashAccount}`}>
+        <a
+          href={`https://${
+            frontMatter.photoProvider === "unsplash"
+              ? "unsplash.com/"
+              : "pexels.com/@"
+          }${frontMatter.photographerAccount}`}
+        >
           {frontMatter.photographer}
         </a>
-        , powered by <a href="https://unsplash.com/">unsplash</a>.
+        , powered by{" "}
+        <a
+          href={`https://${
+            frontMatter.photoProvider === "unsplash"
+              ? "unsplash.com"
+              : "pexels.com"
+          }/`}
+        >
+          {frontMatter.photoProvider}
+        </a>
+        .
       </BlogHeroImageCaption>
       {children}
       <a
