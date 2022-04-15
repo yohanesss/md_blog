@@ -97,7 +97,7 @@ Now let's describe what happens in this stateless component:
 
 With this, we finished replicating the state management from class component into functional component. Hooray!
 
-![](https://media2.giphy.com/media/hEIuLmpW9DmGA/200w.webp?cid=ecf05e479s6el8ohwsda2r5eeglab95xx8i8jymh2ywoeppg&rid=200w.webp&ct=g)
+![react lifecycle graph](https://media2.giphy.com/media/hEIuLmpW9DmGA/200w.webp?cid=ecf05e479s6el8ohwsda2r5eeglab95xx8i8jymh2ywoeppg&rid=200w.webp&ct=g)
 
 ## useEffect
 
@@ -188,4 +188,4 @@ Another thing to note is, if we only pass one parameter (the effect callback) in
 
 The last thing that I want to mentioned is you also can mimic `componentWillUnmount` behavior in `useEffect` by having a return function in your effect callback. `useEffect` will invoke this function when unmounting the component. This is useful when you want to unsubscribe to some listener API or to cleaning up async effect in your component.
 
-That's it for the introduction of `useState` and `useEffect`. I hope this article will help you in your journey to understanding react hooks 🍻
+That's it for the introduction of `useState` and `useEffect`. I hope this article will help you in your journey to understanding react hooks 🍻.

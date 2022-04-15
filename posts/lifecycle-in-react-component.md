@@ -8,6 +8,7 @@ photographerAccount: lauragilchristedu
 photoProvider: unsplash
 isPublished: true
 tags:
+  - react
   - javascript
 ---
 
@@ -19,9 +20,11 @@ This whole process is called the **Component Lifecycle**. For each of these phas
 
 We can see on the diagram below all of React lifecycle methods associated with the mounting, updating, umounting of the component. *(diagram credit: [dan abramov](https://twitter.com/dan_abramov/status/981712092611989509?lang=en))*
 
-###### ![](https://pbs.twimg.com/media/DZ-97vzW4AAbcZj?format=jpg&name=large)
+![react lifecycle diagram](https://pbs.twimg.com/media/DZ-97vzW4AAbcZj?format=jpg&name=large)
+
 
 I will explain in following section about each methods that available for each lifecycle in more detail.
+
 
 # Mounting Lifecycle Methods
 
@@ -215,7 +218,7 @@ Notice that in the contrived example above, we can click `Change My Meal! 🍽` 
 
 ## 4. `getSnapshotBeforeUpdate()`
 
-Once `render()` is called, `getSnapshotBeforeUpdate()` is invoked just before the DOM is being rendered. It is used to store the previous values of the state after the DOM is updated. Any value returned by `getSnapshotBeforeUpdate()` will be used as a parameter for `componentDidUpdate()` which will be explained after this. ```getSnapshotBeforeUpdate()` accepts two arguments which is `prevProps` and `prevState`.
+Once `render()` is called, `getSnapshotBeforeUpdate()` is invoked just before the DOM is being rendered. It is used to store the previous values of the state after the DOM is updated. Any value returned by `getSnapshotBeforeUpdate()` will be used as a parameter for `componentDidUpdate()` which will be explained after this. `getSnapshotBeforeUpdate()` accepts two arguments which is `prevProps` and `prevState`.
 
 ```js
 import React from 'react';
@@ -257,20 +260,67 @@ Note that, it is highly recommended to never directly to set state in `getSnapsh
 
 ## 5. `componentDidUpdate()`
 
-React supports four mounting lifecycle methods for component classes:
+`componentDidUpdate()` is invoked as soon as the `render()` method called (update happens). The common use case for the `componentDidUpdate()` method is to updating the DOM in response to `prop` or `state` changes. This method accept three arguments, the first is `prevProps`, second is `prevState`, and the third argument is the **value that has returned from `getSnapshotBeforeUpdate()` method**.
 
-- `constructor()`
+We can also call `setState()` within this method. However, please be careful incorrect usage of setState within this `componentDidUpdate()` can cause an infinite loop. Note that, you will need to wrap `setState()` in a condition to check for state or prop changes from previous one.
 
-- `getDerivedStateFromProps()`
+```js
+componentDidUpdate(prevProps) {
+  if (this.props.accessToken !== null && prevProps.accessToken !== null) {
+    this.getUser(accessToken)
+    .then(user => {
+      if (user) {
+        this.setState(user);
+      }
+    })
+    .catch(e => console.log('Error fetching user data'))
+  }
+}
+```
 
-- `render()`
+In the example above, we do a condition where if the `accessToken` is not `null`, we can fetch the user data and then updating our user state. If we are does not have access token, `componentDidUpdate()` will not call `getUser()` method, hence preventing to set the `user` state.
 
-- `componentDidMount()`
+# Unmounting lifecycle method
 
-After the component
+The unmounting phase, is a phase where the component will be unmounted (destroyed) from the DOM.
 
-- **Mounting**
+## 1. `componentWillUnmount()`
+This method will be called when the component is unmounted (destroyed) from DOM 💣. This is the place where you perform for any cleanup method, cancel the network request or purge the unwanted subscriptions that was created in the `componentDidMount()` method.
 
-- **Updating**
+```js
+import React from 'react';
 
-- **Unmounting**
+class Building extends React.Component {
+  componentWillUnmount() {
+    console.log('The building is destroyed 💥');
+  }
+
+  render() {
+    return <h1>My Building 🏢</h1>;
+  }
+}
+
+class DestroyBuilding extends React.Component {
+  constructor(props) {
+    super(props);
+    state = {
+      showBuilding: true
+    };
+  }
+
+  render() {
+    let building;
+    if (this.state.showBuilding) {
+      building = <Building />
+    };
+
+    return(
+      <div>
+        {building}
+        <button onClick={() => this.setState(showBuilding: false)}>Detonate Building 💣</button>
+      </div>
+    );
+  }
+}
+```
+When you click `Detonate Building 💣` button, `'The building is destroyed 💥'` text will be logged into our console.
