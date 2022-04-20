@@ -5,6 +5,20 @@ export const BlogPageContainer = styled.div`
   p {
     font-size: 16px;
   }
+  table {
+    margin: 20px 0;
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+
+    td {
+      text-align: center;
+    }
+
+    tr:nth-child(odd) {
+      background: #fff;
+    }
+  }
+
   code {
     padding: 2px 5px;
     border-radius: 0.35rem;
