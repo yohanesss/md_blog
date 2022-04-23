@@ -193,6 +193,23 @@ Do you know that space, tab, newline, carriage return, form feed and vertical ta
 
 So far we are matching the text regardless the position of the character, whether it is on start, middle or near the end of the text. How could we make a boundaries to search the text that must be start in ... and end with ... In that case, we use `^` "hat" and `$` to match a pattern. In our example above `Start your day with orange 🍊` we see that the pattern that didn't start with `^` is can be match regardless of whitespace or even incorrect sentence, it is also same with the pattern that didn't end with `$`. One last note `[^]` (inversion) is *different* than `^` (start with).
 
+```js
+// Matching Group (...)
+('js_basic.txt').match(/^(js_.+)\.txt$/); // capture: "js_basic" ✅
+('js_intermediate.txt').match(/^(js_.+)\.txt$/); // capture: "js_intermediate" ✅
+('js_101.xls').match(/^(js_.+)\.txt$/); // capture: null ❌
+('python.txt').match(/^(js_.+)\.txt$/); // capture: null ❌
+```
+
+Is it possible to extract data from our matching text so we can use that? 🙋🏻‍♀️ Yes it is! We can do that by defining groups of characters and capturing them using the  `(...)` "parantheses". In our example above, we write a simple pattern that captures everything from the start of `js_` until the extension `.txt`.
+
+```js
+// Matching Nested Group (..(...))
+('18200 BaldwinAve').match(/(\d+ (\w+)))/); // capture: "js_basic" ✅
+('17200 FairwayDr').match(/^(js_.+)\.txt$/); // capture: "js_intermediate" ✅
+```
+
+
 | Mofidiers | Represents |
 | --------- | ---------- |
 | g | Performs a global search. Instead of returning once the first match is found, it’ll return all matches found on the string |
