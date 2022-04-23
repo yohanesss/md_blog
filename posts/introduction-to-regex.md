@@ -103,7 +103,7 @@ Look at the example above, `abc` is our pattern, we are done our first regex �
 /123/.test('1 + 2 + 123 = 125');  // match ✅
 ```
 
-On the example above `123` (which is number) is also treated as character in regex.
+We can see `123` (which is number) is also treated as character in regex.
 
 ```js
 // dot .
@@ -131,7 +131,7 @@ While the `.` metacharacter is pretty powerful to match all the character, we ne
 /[^FfR]oot/.test('Foot'); // skip ❌
 ```
 
-We also could use an inverse within brackets to excluding specific characters, if there is any character in our test that are same as the characters inside our brackets it will be not match.
+We also could use an `[^]` "inverse within brackets" to excluding specific characters, if there is any character in our test that are same as the characters inside our brackets it will be not match.
 
 ```js
 // Character ranges
@@ -160,13 +160,13 @@ We can speficy a number of repetitions for a character we want to match by using
 /o*l*m+/.test('mmm'); // match ✅
 ```
 
-How can we match the character to be at least 1 or more character that it follows? Meet the `+` "plus" quantifier. There are also `*` star quantifier, which can be used to represents either 0 or more or 1 or more of the character that it follows.
+How can we match the character to be at least 1 or more character that it follows? Meet the `+` "plus" quantifier. There are also `*` star quantifier, which can be used to represents either 0 or more of the character that it follows.
 
 ```js
 // Question Mark (?) optional
-/\d+ files? is found/.test('1 file is found'); // match ✅
-/\d+ files? is found/.test('4 files is found'); // match ✅
-/\d+ files? is found/.test('No files is found'); // skip ❌
+/\d+ files? is found/.test('1 file is found 💾'); // match ✅
+/\d+ files? is found/.test('4 files is found 💾'); // match ✅
+/\d+ files? is found/.test('No files is found 💾'); // skip ❌
 ```
 
 In the example above, we could give our pattern more flexibility by specify an optional character using `?` "question mark" into our patterns. In our example we using `?` to specifying wheter our statement is singular or plural. "1 file found" (singular) and "4 files is found" (plural), and both is matching ✅.
@@ -184,14 +184,14 @@ Do you know that space, tab, newline, carriage return, form feed and vertical ta
 
 ```js
 // Hat (^) and dollar sign ($) - Start ... End
-/^Start with/.test('Start with orange'); // match ✅
-/orange$/.test('End with orange'); // match ✅
-/^Start with/.test(' Start with orange'); // skip ❌
-/^Start with orange$/.test('Start with orange'); // match ✅
-/^Start with orange$/.test('   Start with orange   '); // skip ❌
+/^Start your day with orange 🍊$/.test('Start your day with an orange 🍊'); // match ✅
+/^Start your day with/.test('Start your day with an apple 🍎'); // match ✅
+/with orange 🍊$/.test('Finish your day with an orange 🍊'); // match ✅
+/^Start your day with 🍊/.test('    Start your day with an orange 🍊'); // skip ❌
+/^Start your day with orange 🍊$/.test('   Start your day with an orange 🍊  '); // skip ❌
 ```
 
-
+So far we are matching the text regardless the position of the character, whether it is on start, middle or near the end of the text. How could we make a boundaries to search the text that must be start in ... and end with ... In that case, we use `^` "hat" and `$` to match a pattern. In our example above `Start your day with orange 🍊` we see that the pattern that didn't start with `^` is can be match regardless of whitespace or even incorrect sentence, it is also same with the pattern that didn't end with `$`. One last note `[^]` (inversion) is *different* than `^` (start with).
 
 | Mofidiers | Represents |
 | --------- | ---------- |
