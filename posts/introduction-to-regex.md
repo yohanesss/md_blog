@@ -205,18 +205,49 @@ Is it possible to extract data from our matching text so we can use that? 🙋�
 
 ```js
 // Matching Nested Group (..(...))
-('18200 BaldwinAve').match(/(\d+ (\w+)))/); // capture: "js_basic" ✅
-('17200 FairwayDr').match(/^(js_.+)\.txt$/); // capture: "js_intermediate" ✅
+('18200 BaldwinAve').match(/(\d+ (\w+))/); // capture: "18200 BaldwinAve" and  "BaldwinAve" ✅
+('17200 FairwayDr').match(/(\d+ (\w+))/); // capture: "17200 FairwayDr" and "FairwayDr" ✅
 ```
 
+We also could do a match a nested group by using `(..)` inside another `(...)`. In our example above, we are do a match for a street number the outer group is able to capture full address. And the inner group we are able to capture the street name. 🏘
 
-| Mofidiers | Represents |
-| --------- | ---------- |
-| g | Performs a global search. Instead of returning once the first match is found, it’ll return all matches found on the string |
-| i | Case-insensitive search. This one is pretty straight forward (and helpful), since it will ignore the case during match, otherwise words such as “Hello” and “HELLO” won’t be considered a match |
-| m | Multi-line search. Similar to "g" modifiers, but if there are line-breaking characters in the string, this flag will ignore them and not stop on them |
+```js
+// Using quantifier inside our group match (...*)
+('1376x768').match(/(\d+)x(\d+)/); // capture: "1366" and  "768" ✅
+('400x200').match(/(\d+)x(\d+)/); // capture: "400" and  "200" ✅
+```
 
+In the example above, using regex we can get the value of `width` and `height` of screen resolution. Note that we are using two group match in our pattern `\d+` is used to catch all the number.
 
-Case 1
+```js
+// Conditional using "pipe" |
+/(Apple🍎|Orange🍊|Pineapple🍍) is my favorite fruit/.test('Apple🍎 is my favorite fruit'); // match ✅
+/(Apple🍎|Orange🍊|Pineapple🍍) is my favorite fruit/.test('Pineapple🍍 is my favorite fruit'); // match ✅
+/(Apple🍎|Orange🍊|Pineapple🍍) is my favorite fruit/.test('Strawberry🍓 is my favorite fruit'); // skip ❌
+```
 
-We need a condition where we need to
+We also can specify a conditioning in our regex pattern by using `|` "pipe". In this example we try to match whether our favorite fruit is either `Apple🍎`, `Orange🍊`, or `Pineapple🍍`. Other than that will be no match.
+
+![](https://media1.giphy.com/media/xT8qBepJQzUjXpeWU8/giphy.gif?cid=ecf05e47zlcz90gn7b8357bres65p3hfg7fg23i357e8e6td&rid=giphy.gif&ct=g)
+
+Congrats for making this far! 🎉 You are now know the basic of regex. Let's see our first regex in this article for validating password. Let's glance it once more.
+
+```js
+function validatePasswordRegex(input) {
+  return /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/.test(input);
+}
+```
+
+Are you able to know what this regex do now? If you are able to read it, congrats! 🎉 Let's walkthrough together.
+
+Our `validatePasswordRegex()` has 4 condition for validating a password.
+
+- `(?=.*\d)` is used to match whether there is a number in our input.
+
+- `(?=.*[a-z])` is used to match if there is a lowercase character in our input.
+
+- `(?=.*[A-Z])` is used to match if there is an uppercase character in our input.
+
+- `.{6,}` it used to make sure if there are minimal 6 character in our input.
+
+I hope this article could help you in your journey of learning regex 🤓. You could try [regexr](https://regexr.com/) if you want messing around with it. Thank you for reading and good luck! ✨

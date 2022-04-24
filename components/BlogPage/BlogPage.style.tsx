@@ -10,8 +10,12 @@ export const BlogPageContainer = styled.div`
     border: 1px solid gainsboro;
     border-radius: 5px;
 
+    th {
+      padding: 5px;
+    }
+
     td {
-      text-align: center;
+      padding: 5px;
     }
 
     tr:nth-child(odd) {
