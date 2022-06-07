@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>My Blog</title>
+        <title>Yohanes Setiawan</title>
       </Head>
       <GlobalStyle />
       <Layout>
