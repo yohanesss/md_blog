@@ -16,7 +16,7 @@ tags:
 
 Before we dive in into how to use React Context, let's first we learn on why this feature is created at the first place. React application is usually consists of multiple components with a parent and children relationships. That means, the data from parent component will be passed to the child component using "props".
 
- > **Unidirectional data flow** is one of main concept of react, in nutshell Changing state on a component will never affect its parent or its siblings, only the children will be affected.
+ > **Unidirectional data flow** is one of main concept of react, in nutshell changing state on a component will never affect its parent or its siblings, only the children will be affected.
 
 This pattern will give us more confident in our code, because our code will be easier to be debugged and less prone to error. However, if there is any data from children component that needed to be shared between components, then the state needed to be [lifted up](https://reactjs.org/docs/lifting-state-up.html) into nearest parent component.
 
@@ -143,7 +143,7 @@ const UserSummary = ({token}) => {
 
 In the example above, we create a new context and store it as `TokenContext` variable. We wrap `App` component using `Provider` from `TokenContext`, and provide the initial value which is in our case is the `token`. Finally using `useContext()` hooks, we get the context value (which is `token`) in our `UserSummary` component.
 
-By using React Context, we make our code ma lot more concise. Which also eliminates the props drilling problem. Aside from React context, there are also another options available like Redux or MobX which is a global state management.
+By using React Context, we make our code ma lot more concise. Which also eliminates the props drilling problem. Aside from React context, there are also another options available like [Redux](https://redux.js.org/) or [MobX](https://mobx.js.org/) which is a global state management.
 
 As a rule of thumb, if there are not a lot amount of state that needed to be managed globally, and the state not updated frequently we should use React Context instead of Redux. However if we are managing a large amount of state and updated frequently we might to consider to use Redux.
 
