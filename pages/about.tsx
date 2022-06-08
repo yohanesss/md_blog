@@ -59,6 +59,23 @@ const About = () => {
         <Heading borderBottom>Professional Skills</Heading>
         {professionalSkills}
       </SectionContainer>
+      <SectionContainer>
+        <Heading borderBottom>Latest Works</Heading>
+        <p
+          style={{
+            boxSizing: "border-box",
+            margin: 0,
+            minWidth: 0,
+            fontSize: "16px",
+            fontFamily: "Karla,sans-serif",
+            paddingTop: 8,
+            paddingBottom: 8,
+          }}
+        >
+          Please visit{" "}
+          <a href="https://yoh.netlify.app">my latest works here.</a>
+        </p>
+      </SectionContainer>
     </>
   );
 };
