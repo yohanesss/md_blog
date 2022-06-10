@@ -50,6 +50,7 @@ const Home: NextPage<HomeProps> = ({ latestPosts }) => {
               margin: "auto",
               width: "fit-content",
               textDecoration: "none",
+              color: "inherit",
             }}
           >
             View More
