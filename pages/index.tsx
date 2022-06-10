@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Link from "next/link";
 import BlogCard from "../components/BlogCard/BlogCard";
 import {
   Heading,
@@ -40,6 +41,18 @@ const Home: NextPage<HomeProps> = ({ latestPosts }) => {
       <SectionContainer>
         <Heading>Latest Articles</Heading>
         {renderLatestPosts}
+        <Link href="/blog">
+          <a
+            style={{
+              display: "block",
+              borderBottom: "2px solid #adf4cf",
+              fontWeight: "bold",
+              margin: "auto",
+            }}
+          >
+            View More
+          </a>
+        </Link>
       </SectionContainer>
     </div>
   );
