@@ -86,7 +86,7 @@ class UserBuilder {
   }
 
   build() {
-    if (!('firstName' in firstName)) {
+    if (!('firstName' in this)) {
       throw new Error('First Name is missing')
     }
     if (!('lastName' in this)) {
