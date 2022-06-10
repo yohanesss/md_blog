@@ -48,6 +48,8 @@ const Home: NextPage<HomeProps> = ({ latestPosts }) => {
               borderBottom: "2px solid #adf4cf",
               fontWeight: "bold",
               margin: "auto",
+              width: "fit-content",
+              textDecoration: "none",
             }}
           >
             View More
