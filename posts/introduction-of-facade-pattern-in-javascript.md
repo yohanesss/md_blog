@@ -24,7 +24,7 @@ Other simple analogy that I can think of is a customer service. Anyone can ask t
 
 Okay, we got the idea of what is Facade Pattern is about. How can this related to programming?
 
-Let's say our Product Manager told John to create a page to display a listing of the company products. In this case, John first instict is immediately search the npm repository for third party API that allow him to quickly retrieve the data from the database. He is super confident about this third party API he found, and he start create the page with this API, and all goes smoothly for John. 🚗
+Let's say our Product Manager told John to create a page to display a listing of the company products. In this case, John first instinct is immediately search the npm repository for third party API that allow him to quickly retrieve the data from the database. He is super confident about this third party API he found, and he start create the page with this API, and all goes smoothly for John. 🚗
 
 After a while he also start to use this third page API all over the place, unfortunately for him during the weekend, his PM call John and tell him the application is broken because of a nasty bug, that has been produced by this third party API that John use. Because of the third party API is **tighly coupled within the application**, he spent a whole weekend fixing the bug in application. 🐞
 
