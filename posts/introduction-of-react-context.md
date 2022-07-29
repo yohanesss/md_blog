@@ -1,6 +1,6 @@
 ---
 title: Introduction of React Context
-date: '2021-03-17'
+date: '2021-05-22'
 description: Introduction of React Context. Learn how we can solve one of the common problem with React, the "Prop Drilling" 🧹
 heroImage: https://images.unsplash.com/photo-1564864041860-d33b31216b3b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80
 photographer: mohammad takhsh

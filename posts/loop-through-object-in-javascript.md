@@ -1,6 +1,6 @@
 ---
 title: Loop through Object in Javascript
-date: '2021-02-13'
+date: '2021-03-16'
 description: Quick Guide on How to loop object in Javascript
 heroImage: https://images.unsplash.com/photo-1618609256302-4332a7b98776?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170
 photographer: Önder Örtel

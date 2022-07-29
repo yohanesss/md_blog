@@ -1,6 +1,6 @@
 ---
 title: Introduction of useState and useEffect
-date: '2020-09-14'
+date: '2020-11-14'
 description: Introduction of React hooks 🪝 in functional component and it's class component equvalent
 heroImage: https://images.unsplash.com/photo-1506123880582-b365334fd375?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1484&q=80
 photographer: Efe Kurnaz
