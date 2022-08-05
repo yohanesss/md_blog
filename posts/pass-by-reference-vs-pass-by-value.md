@@ -20,6 +20,8 @@ Here is a list primitive data types in Javascript:
 
 - `number` -- integer, floats, etc...
 
+- `bigint` -- in case you need integer values larger than the range supported by the `Number`
+
 - `boolean` -- true or false
 
 - `null` -- empty value
