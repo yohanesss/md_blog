@@ -36,7 +36,7 @@ function(array_1, array_2):
   intersection_set = create a second set (for storing our intersected value)
 
   loop through array_2:
-   check if val of array_2 val is on set_1:
+   check if val of array_2 is on set_1:
      push val of array_2 into intersection_set
 
   return array from intersection_set
@@ -61,7 +61,7 @@ function intersection(arr1, arr2) {
 
   for (let val of arr2) {
     if (firstSet.has(val)) {
-      intersectionSet.add(num);
+      intersectionSet.add(val);
     }
   }
 
