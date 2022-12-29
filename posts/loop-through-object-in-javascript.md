@@ -1,6 +1,6 @@
 ---
 title: Loop through Object in Javascript
-date: '2021-03-16'
+date: "2021-03-16"
 description: Quick Guide on How to loop object in Javascript
 heroImage: https://images.unsplash.com/photo-1618609256302-4332a7b98776?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170
 photographer: Önder Örtel
@@ -27,13 +27,11 @@ Let's look an object below
 
 ```js
 const superHeroNicknames = {
-  'IronMan': 'Mecha Man 🚀',
-  'Thor': 'Thunder Bro 🌩',
-  'Hulk': 'Green Guy 🟩'
-}
+  IronMan: "Mecha Man 🚀",
+  Thor: "Thunder Bro 🌩",
+  Hulk: "Green Guy 🟩",
+};
 ```
-
-
 
 We will use this data for the rest of this article. Let's jump to the explanation!
 
@@ -44,8 +42,8 @@ We will use this data for the rest of this article. Let's jump to the explanatio
 ```js
 const keyRes = Objects.keys(superHeroNicknames);
 for (let key of keyRes) {
-    console.log(key + " ==> " + p[key]);
-};
+  console.log(key + " ==> " + p[key]);
+}
 
 // Result:
 // IronMan ==> Mecha Man 🚀
@@ -56,13 +54,14 @@ for (let key of keyRes) {
 This method is useful to get a list of the object properties quickly.
 
 ## 2. `Objects.values()`
+
 `Objects.values()` was the opposite from `Objects.keys()`. instead returning a keys, it will returning an array of object's values. This method is very useful to get a list of all property values quickly.
 
 ```js
-const keyVals = Objects.value(superHeroNicknames);
+const keyVals = Objects.values(superHeroNicknames);
 for (let val of keyVals) {
-    console.log(val);
-};
+  console.log(val);
+}
 
 // Result:
 // Mecha Man 🚀
@@ -77,8 +76,8 @@ for (let val of keyVals) {
 ```js
 const res = Objects.keys(superHeroNicknames);
 for (let [key, val] of res) {
-    console.log(`${key} ==> ${val}`);
-};
+  console.log(`${key} ==> ${val}`);
+}
 
 // Result:
 // IronMan ==> Mecha Man 🚀
@@ -94,11 +93,11 @@ Please note that, this method is still not supported natively by Internet Explor
 
 ```js
 for (let key in superHeroNicknames) {
-      if (!superHeroNicknames.hasOwnProperty(key)) {
-        //The current property is not a direct property of p
-        continue;
-    }
-    console.log(`${key}: ${superHeroNicknames[key]}`);
+  if (!superHeroNicknames.hasOwnProperty(key)) {
+    //The current property is not a direct property of p
+    continue;
+  }
+  console.log(`${key}: ${superHeroNicknames[key]}`);
 }
 
 // Result:
